@@ -87,6 +87,7 @@ function make_navigation()
         // path              => [name, permission]
         'admin_arrive'       => 'Arrive angels',
         'admin_active'       => 'Active angels',
+        'gagga-list'         => ['Gagga Liste', 'admin_user'],
         'users'              => ['All Angels', 'admin_user'],
         'admin_free'         => 'Free angels',
         'admin/questions'    => ['Answer questions', 'question.edit'],
