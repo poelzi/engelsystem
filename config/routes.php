@@ -112,6 +112,12 @@ $route->get('/shifts-json-export', 'FeedController@shifts');
 // Design
 $route->get('/design', 'DesignController@index');
 
+// Gagga
+$route->get('/gagga', 'GaggaController@show');
+$route->post('/gagga', 'GaggaController@update');
+$route->get('/gagga-list', 'GaggaController@list');
+$route->get('/gagga-csv', 'GaggaController@exportCsv');
+
 // Administration
 $route->addGroup(
     '/admin',

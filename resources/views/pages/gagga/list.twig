@@ -1,0 +1,53 @@
+{% extends "layouts/app.twig" %}
+{% import 'macros/base.twig' as m %}
+
+{% block title %}gagga list{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <h1>{{ block('title') }}</h1>
+        <a href="{{ url('/gagga-csv')}}">CSV download</a>
+
+        <table class="table  table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Login</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Preferred</th>
+                    <th>Address</th>
+                    <th>Zip</th>
+                    <th>Mobile</th>
+                    <th>Birthday</th>
+                    <th>Food</th>
+                    <th>Driver</th>
+                    <th>Arrival</th>
+                    <th>Departure</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for form in gagga %}
+                    <tr >
+                        <td>{{ form.user.name }}</td>
+                        <td>{{ form.user.personalData.first_name }}</td>
+                        <td>{{ form.user.personalData.last_name }}</td>
+                        <td>{% if form.preferred_type %}{{ angletypes[form.preferred_type] }}{% endif %}</td>
+                        <td>{{ form.address }}</td>
+                        <td>{{ form.zip }}</td>
+                        <td>{{ form.user.contact.mobile }}</td>
+                        <td>{{ form.birthday }}</td>
+                        <td>{{ form.food }}</td>
+                        <td>{{ form.driver }}</td>
+                        <td>{{ form.user.personalData.planned_arrival_date }}</td>
+                        <td>{{ form.user.personalData.planned_departure_date }}</td>
+                    </tr>
+                    <tr class="odd">
+                        <td colspan="4">{{ form.can_bring }}</td>
+                        <td colspan="4">{{ form.my_best_experience }}</td>
+                        <td colspan="4">{{ form.note }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

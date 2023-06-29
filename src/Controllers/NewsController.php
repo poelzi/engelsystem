@@ -12,6 +12,7 @@ use Engelsystem\Http\Request;
 use Engelsystem\Http\Response;
 use Engelsystem\Models\News;
 use Engelsystem\Models\NewsComment;
+use Engelsystem\Models\Gagga;
 use Psr\Log\LoggerInterface;
 
 class NewsController extends BaseController
@@ -38,8 +39,11 @@ class NewsController extends BaseController
     ) {
     }
 
-    public function index(): Response
+    public function index(Request $request): Response
     {
+        if (Gagga::required($this->auth->user()->id)) {
+            $this->addNotification('Bitte fülle den Gagga Fragebogen aus.');
+        }
         return $this->showOverview();
     }
 

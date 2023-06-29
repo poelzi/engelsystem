@@ -1,0 +1,11 @@
+{% extends "layouts/app.twig" %}
+{% import 'macros/base.twig' as m %}
+{% import 'macros/form.twig' as f %}
+
+{% block title %}Gagga Umfrage{% endblock %}
+
+{% block content %}
+    <div class="container">
+        {{form|raw}}
+    </div>
+{% endblock %}
